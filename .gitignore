@@ -4,6 +4,9 @@
 .packages
 .pub/
 
+.idea/
+.idea/libraries/
+
 build/
 pubspec.lock
 .flutter-plugins
