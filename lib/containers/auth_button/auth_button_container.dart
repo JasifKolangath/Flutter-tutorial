@@ -10,11 +10,9 @@ class GoogleAuthButtonContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Connect to the store:
     return StoreConnector<AppState, _ViewModel>(
       converter: _ViewModel.fromStore,
       builder: (BuildContext context, _ViewModel vm) {
-        // We haven't made this yet.
         return GoogleAuthButton(
           buttonText: vm.buttonText,
           onPressedCallback: vm.onPressedCallback,
@@ -31,12 +29,6 @@ class _ViewModel {
   _ViewModel({this.onPressedCallback, this.buttonText});
 
   static _ViewModel fromStore(Store<AppState> store) {
-    // This is a bit of a more complex _viewModel
-    // constructor. As the state updates, it will
-    // recreate this _viewModel, and then pass
-    // buttonText and the callback down to the button
-    // with the appropriate qualities:
-    //
     return _ViewModel(
         buttonText:
             store.state.currentUser != null ? 'Log Out' : 'Log in with Google',

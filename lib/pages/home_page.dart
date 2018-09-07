@@ -2,17 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:tutorial/containers/counter/counter.dart';
 import 'package:tutorial/containers/counter/increase_counter.dart';
 import 'package:tutorial/containers/auth_button/auth_button_container.dart';
+import 'package:tutorial/containers/user_profile/user_profile.dart';
 
 class HomePage extends StatelessWidget {
-  // We passed it a title from the app root, so we have to
-  // set up the class to accept that arg.
   final String title;
   HomePage(this.title);
 
   @override
   Widget build(BuildContext context) {
-    // Scaffold is almost always going to be your top-level widget
-    // on each page.
     return Scaffold(
       appBar: AppBar(
         title: Text(this.title),
@@ -23,6 +20,10 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               GoogleAuthButtonContainer(),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                child: CurrentUserProfile(),
+              ),
               Container(
                 height: 10.0,
               ),
